@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ZamboWhite</string>
+    <string name="login_signin">Log in/Sign in</string>
+    <string name="edit_login">Phone No.</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="remember_me">Remember me</string>
+    <string name="fgt_pwd">Forgot Password?</string>
+    <string name="available_balance">Available Balance</string>
+    <string name="amount_hint">₹ 0.00</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="transaction">Transactions</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
+    <string name="support">Support</string>
+    <string name="chng_pwd">Change Password</string>
+    <string name="logout">Logout</string>
+    <string name="enter_mobile">Enter Phone no.</string>
+    <string name="enter_password">Please enter password</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_otp">Enter otp sent to your mobile no.</string>
+    <string name="otp">Enter otp</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="verify">Verify</string>
+    <string name="go_back">Go back to Login</string>
+</resources>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_20sdp"
+    app:cardElevation="@dimen/_26sdp"
+    app:contentPadding="@dimen/_5sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linear_sender_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_otp_sender_bene"
+                    android:layout_width="wrap_content"
+                    android:text="@string/enter_otp"
+                    android:textColor="@color/text_gray"
+                    android:textStyle="normal"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textAllCaps="false"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_8sdp" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:hint="@string/otp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edittext_sender_otp_bene"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint=""
+                            android:imeOptions="actionSend|actionGo|actionDone"
+                            android:inputType="number"
+                            android:digits="0123456789"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:singleLine="true" />
+
+                        <requestFocus/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/txt_resend_sender_otp_bene"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:textColor="@color/green"
+                        android:textStyle="bold"
+                        android:text="@string/resend_otp"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_close"
+                        android:layout_width="match_parent"
+                        android:layout_weight="0.55"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@drawable/rounded_button_primary"
+                        android:layout_height="@dimen/_35sdp">
+
+                        <ImageView
+                            android:id="@+id/img_close_add_sender"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:src="@drawable/close"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cancel"
+                            android:layout_toRightOf="@+id/img_close_add_sender"
+                            android:layout_centerVertical="true"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp"
+                            android:layout_toEndOf="@+id/img_close_add_sender" />
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btn_verify_bene"
+                        android:layout_width="match_parent"
+                        android:layout_weight="0.45"
+                        android:layout_height="@dimen/_35sdp"
+                        android:background="@drawable/rounded_button_orange"
+                        android:layout_gravity="center"
+                        android:text="@string/verify"
+                        android:textSize="@dimen/_14ssp"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_otp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_8sdp"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="true"
+            android:background="@color/light_grey"/>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

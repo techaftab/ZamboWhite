@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1A709A</color>
+    <color name="colorPrimaryDark">#15516F</color>
+    <color name="colorAccent">#f54600</color>
+
+    <color name="viewcolor">#00065c</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="text_gray">#696969</color>
+    <color name="red">#e1011b</color>
+    <color name="card_color">#43f7ceb8</color>
+
+    <color name="button_color">#00065c</color>
+
+    <color name="gray">#bebaba</color>
+    <color name="rl_back">#B4F8F8F8</color>
+    <color name="green">#2f943a</color>
+    <color name="blue">#0929E0</color>
+    <color name="dark_gray">#353333</color>
+    <color name="bla_trans">#C0000000</color>
+    <color name="yellow">#FFEB3B</color>
+
+    <color name="app_purple">#542D6C</color>
+    <color name="orange_yellow">#F18006</color>
+    <color name="app_dark_orange">#FF6700</color>
+    <color name="text_orange">#FE6603</color>
+    <color name="text_purple">#502D62</color>
+    <color name="grey">#dcdcdc</color>
+    <color name="light_grey">#F1EEEE</color>
+    <color name="dark_pink">#C62990</color>
+    <color name="purple">#6950AC</color>
+    <color name="highlightTextColor">#3F81C7</color>
+</resources>
