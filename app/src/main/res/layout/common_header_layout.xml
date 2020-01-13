@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
+    android:paddingTop="@dimen/_8sdp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -26,7 +27,7 @@
                 android:background="@drawable/rl_back"
                 android:src="@drawable/menu"
                 android:layout_centerVertical="true"
-                android:padding="@dimen/_4sdp"
+                android:padding="@dimen/_8sdp"
                 android:visibility="visible"/>
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -36,7 +37,7 @@
                 android:src="@drawable/arrow_back"
                 android:background="@drawable/rl_back"
                 android:layout_centerVertical="true"
-                android:padding="@dimen/_4sdp"
+                android:padding="@dimen/_8sdp"
                 android:visibility="gone"/>
 
         </RelativeLayout>

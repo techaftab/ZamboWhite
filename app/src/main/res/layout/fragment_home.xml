@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/dark_pink"
         android:orientation="vertical"
-        android:weightSum="4">
+        android:weightSum="4"
+        tools:ignore="UselessParent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/dark_pink">
+            android:background="@color/colorAccent">
 
             <LinearLayout
-                android:id="@+id/payu_merchant"
+                android:id="@+id/ln_mobile_recharge"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
@@ -29,27 +31,28 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/qr_code_ic"
-                    android:layout_width="@dimen/DP60"
-                    android:layout_height="@dimen/DP60"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:padding="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:src="@mipmap/qr_code" />
+                    android:src="@drawable/mobile_recharge" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/payu_text"
-                    android:layout_width="@dimen/DP180"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="@string/payez_merchant"
+                    android:text="@string/mobile_recharge"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/SP20" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/DP25"
-                    android:layout_height="@dimen/DP25"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:src="@mipmap/right_arrow_white" />
+                    android:src="@drawable/arrow_forward" />
 
             </LinearLayout>
 
@@ -59,10 +62,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/purple">
+            android:background="@color/colorPrimary">
 
             <LinearLayout
-                android:id="@+id/transfer_agent"
+                android:id="@+id/ln_fastag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
@@ -72,28 +75,29 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/transfer_ic"
-                    android:layout_width="@dimen/DP60"
-                    android:layout_height="@dimen/DP60"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:padding="@dimen/_5sdp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@mipmap/transfer_urgent" />
+                    android:src="@drawable/fastag_circle" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/transfer_text"
-                    android:layout_width="@dimen/DP180"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="@string/transfer_agent"
+                    android:text="@string/fastag"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/SP20" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:src="@mipmap/right_arrow_white" />
+                    android:src="@drawable/arrow_forward" />
 
             </LinearLayout>
 
@@ -104,10 +108,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/dark_pink">
+            android:background="@color/colorPrimaryDark">
 
             <LinearLayout
-                android:id="@+id/recharge_comte"
+                android:id="@+id/ln_money_transfer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -119,27 +123,28 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/coin_ic"
-                    android:layout_width="@dimen/DP60"
-                    android:layout_height="@dimen/DP60"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_weight="1"
-                    android:src="@mipmap/coin_bag" />
+                    android:src="@drawable/money_cicle" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/recharge_text"
-                    android:layout_width="@dimen/DP180"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="@string/recharge_com"
+                    android:text="@string/money_transfer"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/SP20" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/DP25"
-                    android:layout_height="@dimen/DP25"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:src="@mipmap/right_arrow_white" />
+                    android:src="@drawable/arrow_forward" />
 
             </LinearLayout>
 
@@ -149,10 +154,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/orange_yellow">
+            android:background="@color/colorDeepGray">
 
             <LinearLayout
-                android:id="@+id/ln_corporate"
+                android:id="@+id/ln_aeps"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -162,40 +167,31 @@
                 android:weightSum="3"
                 tools:ignore="UselessParent">
 
-                <RelativeLayout
-                    android:layout_width="@dimen/DP60"
-                    android:layout_height="@dimen/DP60"
-                    android:layout_weight="1">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/corporate_ic"
-                        android:layout_width="@dimen/DP60"
-                        android:background="@drawable/circle_white"
-                        android:layout_height="@dimen/DP60"
-                        android:padding="@dimen/DP8"
-                        android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/corporate" />
-
-                </RelativeLayout>
-
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/corporate_ic"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:src="@drawable/aeps_circle" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txt_corporate"
-                    android:layout_width="@dimen/DP180"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="@string/corporate"
+                    android:text="@string/aeps"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/SP20" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/DP25"
-                    android:layout_height="@dimen/DP25"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:src="@mipmap/right_arrow_white" />
+                    android:src="@drawable/arrow_forward" />
 
             </LinearLayout>
 

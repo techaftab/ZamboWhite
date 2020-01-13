@@ -66,7 +66,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/_5sdp"
-            android:background="@color/purple" />
+            android:background="@color/colorPrimary" />
 
         <RelativeLayout
             android:id="@+id/open_wallet"
@@ -102,7 +102,7 @@
                 android:onClick="onClick"
                 android:id="@+id/wallet_text"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_toRightOf="@+id/wallet_ic"
                 android:layout_toLeftOf="@+id/img_w" />
@@ -160,7 +160,7 @@
                 android:id="@+id/about_text"
                 android:onClick="onClick"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_toRightOf="@+id/info_ic"
                 android:layout_toLeftOf="@+id/img_ic" />
@@ -219,7 +219,7 @@
                 android:id="@+id/support_text"
                 android:onClick="onClick"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 android:layout_toRightOf="@+id/support_ic"
                 android:layout_toLeftOf="@+id/img_s" />
 
@@ -274,7 +274,7 @@
                 android:paddingRight="@dimen/_8sdp"
                 android:text="@string/chng_pwd"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginRight="0dp"
                 android:layout_toLeftOf="@+id/img_c"
@@ -299,7 +299,7 @@
             android:background="@color/grey" />
 
         <RelativeLayout
-            android:id="@+id/layout_logout"
+            android:id="@+id/rl_logout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -332,7 +332,7 @@
                 android:onClick="onClick"
                 android:id="@+id/logout_text"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_toRightOf="@+id/_logout_ic" />
 
@@ -347,6 +347,11 @@
                 android:layout_alignParentRight="true" />
 
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

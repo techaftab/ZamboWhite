@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZamboWhite</string>
+    <string name="app_name">Sri Paras</string>
     <string name="login_signin">Log in/Sign in</string>
     <string name="edit_login">Phone No.</string>
     <string name="password">Password</string>
@@ -24,4 +24,8 @@
     <string name="resend_otp">Resend OTP</string>
     <string name="verify">Verify</string>
     <string name="go_back">Go back to Login</string>
+    <string name="mobile_recharge">Mobile Recharge</string>
+    <string name="fastag">Fastag</string>
+    <string name="money_transfer">Money Transfer</string>
+    <string name="aeps">Aeps</string>
 </resources>
