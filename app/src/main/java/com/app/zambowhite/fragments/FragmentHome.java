@@ -9,8 +9,12 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.app.zambowhite.R;
+import com.app.zambowhite.activity.MainActivity;
+
+import java.util.Objects;
 
 import xyz.hasnat.sweettoast.SweetToast;
 
@@ -18,6 +22,9 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
 
     private LinearLayout lnMobileRecharge,lnFastag,lnMoneyTransfer,lnAeps;
     private View view;
+
+    FragmentTransaction ft;
+    Fragment currentFragment;
 
     @Nullable
     @Override
@@ -43,13 +50,21 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
         if (v==lnMobileRecharge){
             SweetToast.success(getActivity(),"Available soon");
         }
-        if (v==lnMobileRecharge){
+        if (v==lnFastag){
+           // SweetToast.success(getActivity(),"Available soon");
+            if (getActivity()!=null) {
+                ft = getActivity().getSupportFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.right_in, R.anim.left_out);
+                currentFragment = new FragmentFastag();
+                ft.replace(R.id.framelayout_main, currentFragment);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        }
+        if (v==lnMoneyTransfer){
             SweetToast.success(getActivity(),"Available soon");
         }
-        if (v==lnMobileRecharge){
-            SweetToast.success(getActivity(),"Available soon");
-        }
-        if (v==lnMobileRecharge){
+        if (v==lnAeps){
             SweetToast.success(getActivity(),"Available soon");
         }
     }

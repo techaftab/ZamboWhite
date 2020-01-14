@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_addbene_fastag"
+    android:visibility="gone"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/add_contact_circle"
+                android:layout_margin="@dimen/_8sdp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/enter_fastag_id"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/bg_box_blue">
+
+                <EditText
+                    android:id="@+id/edittext_account_fastag"
+                    android:layout_width="match_parent"
+                    android:hint="@string/wallet_id"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:background="@null"
+                    android:layout_centerVertical="true"
+                    android:layout_height="@dimen/_40sdp"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingRight="@dimen/_8sdp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/enter_bank"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_25sdp"
+                android:background="@drawable/bg_box_blue">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autotxt_bank_fastag"
+                    android:layout_width="match_parent"
+                    android:hint="@string/enter_bank"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:background="@null"
+                    android:layout_centerVertical="true"
+                    android:layout_height="@dimen/_40sdp"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingRight="@dimen/_8sdp"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_add_fastag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button_orange"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_14ssp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="@string/continu"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:src="@drawable/zambo_logo"
+                    android:padding="@dimen/_15sdp"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_close_fastag"
+        android:paddingRight="@dimen/_8sdp"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_close_add_sender"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/close"
+            android:padding="@dimen/_8sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/close"
+            android:layout_toRightOf="@+id/img_close_add_sender"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_16ssp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_fastag"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_50sdp"
+        android:src="@drawable/fastag_logo"
+        android:layout_gravity="center"
+        android:padding="@dimen/_8sdp"/>
+
+    <LinearLayout
+        android:id="@+id/linear_sender_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_otp_sender_bene"
+            android:layout_width="wrap_content"
+            android:text="@string/enter_amount_recharge"
+            android:textColor="@color/gray"
+            android:textStyle="normal"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textAllCaps="false"
+            android:paddingStart="@dimen/_8sdp"
+            android:textSize="@dimen/_10ssp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_8sdp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:hint="@string/enter_amount"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_amount_fastag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint=""
+                    android:imeOptions="actionSend|actionGo|actionDone"
+                    android:inputType="numberDecimal"
+                    android:digits=".0123456789"
+                    android:textColor="@color/black"
+                    android:textStyle="normal"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <requestFocus/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_recharge_fastag"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/green"
+            android:layout_gravity="center"
+            android:text="@string/continu"
+            android:textSize="@dimen/_14ssp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

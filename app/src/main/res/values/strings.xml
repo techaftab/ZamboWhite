@@ -28,4 +28,27 @@
     <string name="fastag">Fastag</string>
     <string name="money_transfer">Money Transfer</string>
     <string name="aeps">Aeps</string>
+    <string name="hint_country_code">+91</string>
+    <string name="enter_ten_mob">Enter 10 digit mobile no.</string>
+    <string name="next">Next</string>
+    <string name="go_previous">Go Back</string>
+    <string name="no_beneficiary">No Beneficiary!</string>
+    <string name="add_benef">Add Beneficiary</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="enter_city">Enter City</string>
+    <string name="enter_district">Enter District</string>
+    <string name="enter_state">Enter State</string>
+    <string name="enter_pincode">Pincode</string>
+    <string name="enter_account">Enter Account</string>
+    <string name="enter_bank">Enter Bank Name</string>
+    <string name="enter_correct_bank">Enter valid bank</string>
+    <string name="continu">Continue</string>
+    <string name="wallet_id">Wallet Id</string>
+    <string name="enter_fastag_id">Enter Wallet Id</string>
+    <string name="close">Close</string>
+    <string name="enter_amount_recharge">Enter amount to recharge</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="name">Name</string>
+    <string name="mob_num">Mobile Number</string>
+    <string name="recharge">Recharge</string>
 </resources>

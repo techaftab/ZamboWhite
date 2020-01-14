@@ -16,6 +16,7 @@ import android.se.omapi.Session;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,9 +33,10 @@ import xyz.hasnat.sweettoast.SweetToast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView imgNavigation;
+    private ImageView imgNavigation,imgBackMain;
     private DrawerLayout drawerLayout;
     private TextView txtUserName,txtPhoneUser;
+    private LinearLayout balanceLayout;
     private ProgressBar progressBar;
     UserData userData;
     private FragmentTransaction ft;
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         imgNavigation.setOnClickListener(this);
         rlLogout.setOnClickListener(this);
+        imgBackMain.setOnClickListener(this);
     }
 
     private void loadFragment() {
@@ -74,7 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtPhoneUser=findViewById(R.id.txt_phone_user);
         bottomNavigationView=findViewById(R.id.bottom_navigation);
         progressBar=findViewById(R.id.progressbar_main);
+        imgBackMain=findViewById(R.id.img_back_main);
         rlLogout=findViewById(R.id.rl_logout);
+        balanceLayout=findViewById(R.id.balance_layout);
 
         txtUserName.setText(userData.getFullName());
         txtPhoneUser.setText(getResources().getString(R.string.app_name)+" ("+userData.getMobile()+")");
@@ -93,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.closeDrawer(GravityCompat.END);
             }
             logout();
+        }
+        if (v==imgBackMain){
+
         }
     }
 
@@ -153,5 +161,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         finish();
                     }).create().show();
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void updateHeader(String string) {
+        bottomNavigationView.setVisibility(View.VISIBLE);
+        txtPhoneUser.setText(string+" ("+userData.getMobile()+")");
+        balanceLayout.setVisibility(View.VISIBLE);
+        imgNavigation.setVisibility(View.GONE);
+        imgBackMain.setVisibility(View.VISIBLE);
     }
 }

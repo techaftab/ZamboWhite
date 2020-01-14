@@ -283,10 +283,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             progressBarForgot.setVisibility(View.INVISIBLE);
             if (loginResponse.status.equalsIgnoreCase("0")) {
                 SweetToast.success(LoginActivity.this,loginResponse.message);
-                lnOtpForgot.setVisibility(View.VISIBLE);
+                cardViewlogin.setVisibility(View.VISIBLE);
+                cardViewForgot.setVisibility(View.GONE);
+               // lnOtpForgot.setVisibility(View.VISIBLE);
             } else {
                 progressBarForgot.setVisibility(View.INVISIBLE);
-                SweetToast.error(LoginActivity.this,loginResponse.message);
+               //SweetToast.error(LoginActivity.this,loginResponse.message);
             }
         });
     }

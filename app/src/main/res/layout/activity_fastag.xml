@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ActivityFastag">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="@dimen/_45sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/img_back_fasttag"
+            android:src="@drawable/fastag_logo"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_back_fasttag" />
+
+        <ImageView
+            android:id="@+id/img_back_fasttag"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_12sdp"
+            android:src="@drawable/back"/>
+
+        <ImageView
+            android:id="@+id/wallet_fasttag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_purse"
+            android:textAllCaps="true"
+            android:padding="@dimen/_6sdp"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/expandablelayout"
+        android:background="#CCD1D3"
+        app:ael_duration="300"
+        android:layout_height="@dimen/_40sdp"
+        app:ael_expanded="false"
+        app:ael_interpolator="accelerateDecelerate"
+        app:ael_orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_balance_fasttag"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DP35"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="16sp"
+            android:layout_centerVertical="true"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:padding="@dimen/DP8"
+            android:text=""/>
+
+        <ProgressBar
+            android:id="@+id/progressbar_fasttag"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/DP15"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/DP15" />
+
+    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_fastag_list"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerview_bene_fastag"
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/_6sdp"
+            android:visibility="gone"
+            android:layout_above="@+id/floating_add_new_beneficiary"
+            android:layout_height="match_parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_add_new_beneficiary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            app:backgroundTint="@color/colorBlue"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            android:layout_margin="@dimen/_20sdp"
+            android:src="@drawable/add_contact"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_beneficiary_fastag"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_no_beneficiary_fastag"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/add_contact"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/txt_no_beneficiary_fastag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_no_beneficiary_fastag"
+            android:layout_centerHorizontal="true"
+            android:text="@string/no_beneficiary"
+            android:gravity="center"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14ssp"/>
+
+        <Button
+            android:id="@+id/btn_add_benef_fastag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:layout_below="@+id/txt_no_beneficiary_fastag"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:text="@string/add_benef"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            android:background="@color/red"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview_fastag"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center_horizontal"
+                android:padding="@dimen/_10sdp"
+                android:visibility="visible"
+                android:src="@drawable/kyc"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/enter_address"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/bg_box_blue">
+
+                <EditText
+                    android:id="@+id/edittext_address_fastag"
+                    android:layout_width="match_parent"
+                    android:hint="@string/enter_address"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:inputType="text|textMultiLine"
+                    android:imeOptions="actionNext"
+                    android:background="@null"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingRight="@dimen/_8sdp"
+                    android:lines="3"
+                    android:maxLines="3"/>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/enter_city"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/bg_box_blue">
+
+                <EditText
+                    android:id="@+id/edittext_city_fastag"
+                    android:layout_width="match_parent"
+                    android:hint="@string/enter_city"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:background="@null"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingRight="@dimen/_8sdp"
+                    android:imeOptions="actionNext"
+                    android:layout_centerVertical="true"
+                    android:layout_height="@dimen/_40sdp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/enter_district"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_14sdp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/bg_box_blue">
+
+                <EditText
+                    android:id="@+id/edittext_district_fastag"
+                    android:layout_width="match_parent"
+                    android:hint="@string/enter_district"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:background="@null"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingRight="@dimen/_8sdp"
+                    android:imeOptions="actionNext"
+                    android:layout_centerVertical="true"
+                    android:layout_height="@dimen/_40sdp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/enter_state"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/bg_box_blue">
+
+                <EditText
+                    android:id="@+id/edittext_state_fastag"
+                    android:layout_width="match_parent"
+                    android:hint="@string/enter_state"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:background="@null"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingRight="@dimen/_8sdp"
+                    android:imeOptions="actionNext"
+                    android:layout_centerVertical="true"
+                    android:layout_height="@dimen/_40sdp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/enter_pincode"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/bg_box_blue">
+
+                <EditText
+                    android:id="@+id/edittext_pincode_fastag"
+                    android:layout_width="match_parent"
+                    android:hint="@string/enter_pincode"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:digits="0123456789"
+                    android:background="@null"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:paddingRight="@dimen/_8sdp"
+                    android:imeOptions="actionDone"
+                    android:layout_centerVertical="true"
+                    android:layout_height="@dimen/_40sdp"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_continue_fastag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button_orange"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="@string/continu"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60sdp"
+                    android:src="@drawable/zambo_logo"
+                    android:padding="@dimen/_15sdp"
+                    android:layout_alignParentBottom="true"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/layout_fastag_beneficiary"/>
+
+
+</LinearLayout>
