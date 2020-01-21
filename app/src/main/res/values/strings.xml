@@ -46,9 +46,19 @@
     <string name="wallet_id">Wallet Id</string>
     <string name="enter_fastag_id">Enter Wallet Id</string>
     <string name="close">Close</string>
-    <string name="enter_amount_recharge">Enter amount to recharge</string>
-    <string name="enter_amount">Enter Amount</string>
+    <string name="enter_amount_recharge">(₹) Enter amount to recharge</string>
+    <string name="enter_amount">Enter Amount (₹)</string>
     <string name="name">Name</string>
     <string name="mob_num">Mobile Number</string>
     <string name="recharge">Recharge</string>
+    <string name="no_internet">No Internet Connectivity!</string>
+    <string name="do_have_referral">Do you have referral code?</string>
+    <string name="sign_up">Sign up now.</string>
+    <string name="user_full_name">Enter Full Name</string>
+    <string name="country_code">+91</string>
+    <string name="user_phone_no">Phone No.</string>
+    <string name="user_email_id">Email Id</string>
+    <string name="conf_pwd">Confirm Password</string>
+    <string name="terms_and_cond">I Read and agree to Terms and Conditions</string>
+    <string name="aleardy_account">Already have a account?</string>
 </resources>

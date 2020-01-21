@@ -14,10 +14,12 @@
         <ScrollView
             android:id="@+id/scrollview_login"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:orientation="vertical"
                 android:layout_height="wrap_content">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -31,17 +33,17 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/logo"
-                    android:layout_width="@dimen/_150sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"
                     android:layout_below="@+id/question"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/zambo_logo" />
+                    android:src="@drawable/sriparas_logo" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_below="@+id/logo"
                     android:layout_margin="@dimen/_15sdp"
                     app:cardCornerRadius="@dimen/_20sdp"
@@ -217,6 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/logo"
+                    android:visibility="gone"
                     android:layout_margin="@dimen/_15sdp"
                     app:cardCornerRadius="@dimen/_20sdp"
                     app:cardElevation="@dimen/_10sdp">
@@ -382,7 +385,33 @@
 
                 </androidx.cardview.widget.CardView>
 
-            </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/ln_signup_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp"
+                    android:background="@drawable/rl_back"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/do_have_referral"
+                        android:textSize="@dimen/_15ssp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/sign_up"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_15ssp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </ScrollView>
 

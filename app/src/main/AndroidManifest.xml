@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.app.zambowhite">
+    package="com.app.sriparas">
 
     <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION"
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
-        android:name=".config.AppController"
+        android:name="com.app.sriparas.config.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,13 +24,13 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
-            android:name=".activity.ActivityFastag"
+            android:name="com.app.sriparas.activity.ActivityFastag"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.WithHead"
             android:windowSoftInputMode="stateHidden"/>
 
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name="com.app.sriparas.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,13 +38,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.LoginActivity" />
+        <activity android:name="com.app.sriparas.activity.LoginActivity" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.app.sriparas.activity.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.WithHead"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden|adjustNothing"/>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

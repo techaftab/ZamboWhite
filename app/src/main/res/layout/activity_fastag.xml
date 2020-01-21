@@ -54,14 +54,14 @@
         <TextView
             android:id="@+id/txt_balance_fasttag"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/DP35"
+            android:layout_height="@dimen/_35sdp"
             android:gravity="center_horizontal|center_vertical"
             android:textSize="16sp"
             android:layout_centerVertical="true"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:padding="@dimen/DP8"
+            android:padding="@dimen/_8sdp"
             android:text=""/>
 
         <ProgressBar
@@ -69,10 +69,10 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_15sdp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/DP15"
+            android:layout_marginEnd="@dimen/_12sdp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/DP15" />
+            android:layout_marginRight="@dimen/_15sdp" />
 
     </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
@@ -361,7 +361,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/zambo_logo"
+                    android:src="@drawable/sriparas_logo"
                     android:padding="@dimen/_15sdp"
                     android:layout_alignParentBottom="true"
                     tools:ignore="ContentDescription" />
