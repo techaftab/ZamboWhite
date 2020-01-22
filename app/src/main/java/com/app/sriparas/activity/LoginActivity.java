@@ -223,7 +223,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void getLoginResponse(String phone, String password) {
-        Configuration.hideKeyboardFrom(LoginActivity.this);
+        try {
+            Configuration.hideKeyboardFrom(LoginActivity.this);
+        }catch(Exception e){e.printStackTrace();}
         progressBar.setVisibility(View.VISIBLE);
         loginViewModel.loginUser(phone,password).observe(this, loginResponse -> {
             progressBar.setVisibility(View.INVISIBLE);
