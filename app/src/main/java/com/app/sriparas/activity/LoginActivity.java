@@ -9,9 +9,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -27,7 +29,6 @@ import com.app.sriparas.config.Configuration;
 import com.app.sriparas.config.Constant;
 import com.app.sriparas.config.PrefManager;
 import com.app.sriparas.config.SessionManager;
-import com.app.sriparas.fragments.FragmentFastag;
 import com.app.sriparas.fragments.FragmentSignup;
 import com.app.sriparas.models.UserData;
 import com.app.sriparas.viewmodel.LoginViewModel;
@@ -45,6 +46,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LinearLayoutCompat lnOtpForgot;
     LinearLayout lnSignUp;
     SessionManager session;
+    FrameLayout frameLayout;
+    ScrollView scrollView;
 
     LoginViewModel loginViewModel;
     private FragmentTransaction ft;
@@ -68,6 +71,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void init() {
+        scrollView=findViewById(R.id.scrollview_login);
+        frameLayout=findViewById(R.id.framelayout_login);
         lnSignUp=findViewById(R.id.ln_signup_now);
         cardViewlogin=findViewById(R.id.cardView_login);
         cardViewForgot=findViewById(R.id.cardView_forgot);
@@ -85,6 +90,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtForgotPassword=findViewById(R.id.forget_password);
         txtLogin=findViewById(R.id.login_user);
         SplashActivity.getPreferences(Constant.PHONE, "");
+        scrollView.setVisibility(View.VISIBLE);
+        frameLayout.setVisibility(View.GONE);
         if (!TextUtils.isEmpty(SplashActivity.getPreferences(Constant.PHONE,""))){
             editTextPhone.setText(SplashActivity.getPreferences(Constant.PHONE,""));
             editTextPassword.setText(SplashActivity.getPreferences(Constant.PASSWORD,""));
@@ -136,6 +143,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         }
         if (v==lnSignUp){
+            frameLayout.setVisibility(View.VISIBLE);
+            scrollView.setVisibility(View.GONE);
             ft = getSupportFragmentManager().beginTransaction();
             ft.setCustomAnimations(R.anim.right_in, R.anim.left_out);
             currentFragment = new FragmentSignup();
@@ -254,9 +263,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-
-
-
     private void verifyOtpLogin(String phone, String otp, ProgressBar progressBarOtp, Dialog dialg) {
         Configuration.hideKeyboardFrom(LoginActivity.this);
         progressBarOtp.setVisibility(View.VISIBLE);
@@ -323,6 +329,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
+        if (frameLayout.isShown()){
+            frameLayout.setVisibility(View.GONE);
+            scrollView.setVisibility(View.VISIBLE);
+        }else
         if (cardViewForgot.isShown()){
             cardViewForgot.setVisibility(View.GONE);
             cardViewlogin.setVisibility(View.VISIBLE);

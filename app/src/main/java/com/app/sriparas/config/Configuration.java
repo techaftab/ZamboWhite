@@ -87,8 +87,7 @@ public class Configuration {
         String value = prefs.getString(key, "empty");
         return value;
     }
-    public static void showcalendar(final TextView edtDob, Context context)
-    {
+    public static void showcalendar(final TextView edtDob, Context context) {
         int mYear, mMonth, mDay;
 
         final Calendar c = Calendar.getInstance();

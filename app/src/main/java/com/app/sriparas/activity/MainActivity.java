@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             logout();
         }
         if (v==imgBackMain){
-
             if (!(f instanceof FragmentHome)) {
                 loadFragment("1");
             }else {
