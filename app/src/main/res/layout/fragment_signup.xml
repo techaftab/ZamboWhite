@@ -72,6 +72,43 @@
                                 android:src="@drawable/ic_user" />
 
                             <EditText
+                                android:id="@+id/ed_referral_code"
+                                android:layout_weight="0.20"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_referral_code"
+                                android:inputType="textCapCharacters"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white" />
+                            <requestFocus />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@drawable/box_background"
+                            android:gravity="center_vertical"
+                            android:weightSum="1"
+                            android:padding="@dimen/_5sdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/_4sdp"
+                                android:layout_weight="0.80"
+                                android:src="@drawable/ic_user" />
+
+                            <EditText
                                 android:id="@+id/ed_full_name"
                                 android:layout_weight="0.20"
                                 android:layout_width="match_parent"
@@ -166,46 +203,33 @@
                             android:layout_height="@dimen/_40sdp"
                             android:layout_marginLeft="@dimen/_15sdp"
                             android:layout_marginRight="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_10sdp"
-                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:background="@drawable/box_background"
-                            android:orientation="horizontal">
+                            android:weightSum="1">
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_gravity="center_vertical"
-                                android:layout_margin="@dimen/_10sdp"
                                 android:layout_weight="0.80"
-                                android:src="@drawable/lock_filled_white" />
+                                android:layout_margin="@dimen/_10sdp"
+                                android:src="@drawable/email"/>
 
-                            <com.google.android.material.textfield.TextInputLayout
+                            <EditText
+                                android:id="@+id/ed_pan"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:padding="@dimen/_5sdp"
-                                android:textColorHint="@android:color/white"
-                                app:hintEnabled="false"
+                                android:layout_height="match_parent"
                                 android:layout_weight="0.20"
-                                app:passwordToggleEnabled="true"
-                                app:passwordToggleTint="@android:color/white">
-
-                                <EditText
-                                    android:id="@+id/ed_password"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:paddingLeft="@dimen/_8sdp"
-                                    android:paddingRight="@dimen/_8sdp"
-                                    android:background="@android:color/transparent"
-                                    android:hint="@string/password"
-                                    android:inputType="textPassword"
-                                    android:singleLine="true"
-                                    android:textColor="@android:color/white"
-                                    android:textColorHint="@android:color/white"
-                                    bind:ignore="Autofill" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_pan"
+                                android:inputType="textCapCharacters"
+                                android:maxLength="10"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -214,46 +238,214 @@
                             android:layout_height="@dimen/_40sdp"
                             android:layout_marginLeft="@dimen/_15sdp"
                             android:layout_marginRight="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_10sdp"
-                            android:weightSum="1"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:background="@drawable/box_background"
-                            android:orientation="horizontal">
+                            android:weightSum="1">
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="match_parent"
-                                android:layout_weight="0.80"
                                 android:layout_height="match_parent"
-                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0.80"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:src="@drawable/lock_filled_white"/>
+                                android:src="@drawable/email"/>
 
-                            <com.google.android.material.textfield.TextInputLayout
+                            <EditText
+                                android:id="@+id/ed_aadhaar"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:padding="@dimen/_5sdp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="0.20"
-                                android:textColorHint="@android:color/white"
-                                app:hintEnabled="false"
-                                app:passwordToggleEnabled="true"
-                                app:passwordToggleTint="@android:color/white">
-
-                                <EditText
-                                    android:id="@+id/ed_confirm_password"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@android:color/transparent"
-                                    android:hint="@string/conf_pwd"
-                                    android:inputType="textPassword"
-                                    android:singleLine="true"
-                                    android:textColor="@android:color/white"
-                                    android:textColorHint="@android:color/white"
-                                    bind:ignore="Autofill" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_aadhaar"
+                                android:inputType="number"
+                                android:digits="1234567890"
+                                android:maxLength="12"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/box_background"
+                            android:weightSum="1">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.80"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:src="@drawable/email"/>
+
+                            <EditText
+                                android:id="@+id/ed_dob"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.20"
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_company"
+                                android:inputType="none"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/box_background"
+                            android:weightSum="1">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.80"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:src="@drawable/email"/>
+
+                            <EditText
+                                android:id="@+id/ed_city"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.20"
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_city"
+                                android:inputType="text"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/box_background"
+                            android:weightSum="1">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.80"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:src="@drawable/email"/>
+
+                            <EditText
+                                android:id="@+id/ed_state"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.20"
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_state"
+                                android:inputType="text"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/box_background"
+                            android:weightSum="1">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.80"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:src="@drawable/email"/>
+
+                            <EditText
+                                android:id="@+id/ed_company"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.20"
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_company"
+                                android:inputType="text"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/box_background"
+                            android:weightSum="1">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.80"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:src="@drawable/email"/>
+
+                            <EditText
+                                android:id="@+id/ed_pin"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.20"
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_company"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:digits="1234567890"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
 
                         <Button
                             android:id="@+id/signup_button"

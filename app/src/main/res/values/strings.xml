@@ -61,4 +61,8 @@
     <string name="conf_pwd">Confirm Password</string>
     <string name="terms_and_cond">I Read and agree to Terms and Conditions</string>
     <string name="aleardy_account">Already have a account?</string>
+    <string name="enter_pan">PAN No.</string>
+    <string name="enter_aadhaar">Enter Aadhaar No.</string>
+    <string name="enter_company">Enter Company</string>
+    <string name="enter_referral_code">Enter Referral Code</string>
 </resources>
