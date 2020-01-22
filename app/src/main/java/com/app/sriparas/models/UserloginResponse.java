@@ -69,6 +69,18 @@ public class UserloginResponse {
         @Expose
         public String txntoken;
 
+        @SerializedName("memberId")
+        @Expose
+        public String memberId;
+
+        public String getMemberId() {
+            return memberId;
+        }
+
+        public void setMemberId(String memberId) {
+            this.memberId = memberId;
+        }
+
         public String getId() {
             return id;
         }

@@ -49,7 +49,7 @@
             android:id="@+id/txt_otp_sender_bene"
             android:layout_width="wrap_content"
             android:text="@string/enter_amount_recharge"
-            android:textColor="@color/gray"
+            android:textColor="@color/black"
             android:textStyle="normal"
             android:layout_marginBottom="@dimen/_8sdp"
             android:textAllCaps="false"
@@ -59,6 +59,34 @@
             android:paddingLeft="@dimen/_8sdp" />
 
 
+        <LinearLayout
+            android:id="@+id/ln_amount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:weightSum="1"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:background="@drawable/ed_background">
+
+            <EditText
+                android:id="@+id/edittext_amount_fastag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:singleLine="true"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:digits=".0123456789"
+                android:imeOptions="actionDone"
+                android:drawableEnd="@drawable/amount_icon"
+                android:hint="@string/enter_amount_recharge"
+                android:paddingLeft="@dimen/_8sdp"
+                android:paddingRight="@dimen/_8sdp"
+                android:drawableRight="@drawable/amount_icon" />
+
+        </LinearLayout>
+
+
+<!--
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -88,6 +116,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
+-->
 
         <Button
             android:id="@+id/btn_recharge_fastag"

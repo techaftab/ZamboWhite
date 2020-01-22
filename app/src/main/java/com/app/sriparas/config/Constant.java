@@ -34,4 +34,14 @@ public interface Constant {
     String OPERATOR = "operator";
     String OPT_NAME = "optname";
     String SERVICE = "service";
+    String REFERRAL_CODE = "referralid";
+    String FULLNAME = "fullName";
+    String EMAIL = "email";
+    String PHONE_NO = "phone";
+    String AADHAAR = "aadhaar";
+    String PAN = "pan";
+    String CITY = "city";
+    String COMPANY = "company";
+    String PIN_NO = "PIN";
+    String DOB = "DOB";
 }

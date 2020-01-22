@@ -20,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.sriparas.R;
+import com.app.sriparas.activity.SplashActivity;
+import com.app.sriparas.config.Constant;
 import com.app.sriparas.config.PrefManager;
 import com.app.sriparas.models.FastagList;
 import com.app.sriparas.models.UserData;
@@ -40,6 +42,13 @@ public class FastagAdapter extends RecyclerView.Adapter<FastagAdapter.MyViewHold
     ProgressDialog progressDialog;
     private String type;
 
+    public FastagAdapter(Context context, List<FastagList> contactList, FastagAdapterListner listener) {
+        this.context = context;
+        this.listener = listener;
+        this.loadList = contactList;
+        this.loadListFiltered = contactList;
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView txtName,txtAccount;
         private Button btnRecharge;
@@ -53,20 +62,19 @@ public class FastagAdapter extends RecyclerView.Adapter<FastagAdapter.MyViewHold
                 public void onClick(View v) {
                     int pos=getAdapterPosition();
                    // SweetToast.error(context,"Service under process");
-                    openDialogRecharge(pos,loadListFiltered.get(pos).getBeneficiary_id(),loadListFiltered.get(pos).getBeneAccount());
+                    openDialogRecharge(pos,loadListFiltered.get(pos).getBeneficiary_id(),
+                            loadListFiltered.get(pos).getBeneAccount());
                 }
             });
-            view.setOnClickListener(v -> {
+          /*  view.setOnClickListener(v -> {
                 int pos=getAdapterPosition();
                // SweetToast.error(context,"Service under process");
                 openDialogRecharge(pos,loadListFiltered.get(pos).getBeneficiary_id(),loadListFiltered.get(pos).getBeneAccount());
-            });
+            });*/
         }
     }
 
     private void openDialogRecharge(int pos, String beneficiary_id, String beneAccount) {
-        progressDialog=new ProgressDialog(context);
-        UserData userData = PrefManager.getInstance(context).getUserData();
         final Dialog dialg=new Dialog(context);
         dialg.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialg.setContentView(R.layout.layout_fastag_recharge);
@@ -79,11 +87,13 @@ public class FastagAdapter extends RecyclerView.Adapter<FastagAdapter.MyViewHold
 
         btnRecharge.setOnClickListener(v -> {
             String amount=editTextAmount.getText().toString().trim();
-
             if (TextUtils.isEmpty(amount)){
                 SweetToast.error(context,"Please enter amount!");
             } else if (Float.valueOf(amount)<=0){
                 SweetToast.error(context,"Please enter valid amount!");
+            } else if (TextUtils.isEmpty(SplashActivity.getPreferences(Constant.BALANCE,""))
+                    ||Float.valueOf(SplashActivity.getPreferences(Constant.BALANCE,""))<Float.valueOf(amount)) {
+                SweetToast.error(context,"Your Available balance is low");
             }else {
                 listener.rechargeFastag(pos,beneficiary_id,beneAccount,amount,dialg);
             }
@@ -95,15 +105,6 @@ public class FastagAdapter extends RecyclerView.Adapter<FastagAdapter.MyViewHold
         Window window = dialg.getWindow();
         assert window != null;
         window.setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-    }
-
-
-
-    public FastagAdapter(Context context, List<FastagList> contactList, FastagAdapterListner listener) {
-        this.context = context;
-        this.listener = listener;
-        this.loadList = contactList;
-        this.loadListFiltered = contactList;
     }
 
     @NonNull

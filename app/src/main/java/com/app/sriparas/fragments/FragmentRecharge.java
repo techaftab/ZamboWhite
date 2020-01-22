@@ -8,8 +8,6 @@ import android.content.Context;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
-import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
@@ -39,8 +37,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.sriparas.R;
-import com.app.sriparas.activity.ActivityFastag;
 import com.app.sriparas.activity.MainActivity;
+import com.app.sriparas.activity.SplashActivity;
 import com.app.sriparas.config.AppConfig;
 import com.app.sriparas.config.AppController;
 import com.app.sriparas.config.Configuration;
@@ -73,9 +71,10 @@ import java.util.Objects;
 
 import xyz.hasnat.sweettoast.SweetToast;
 
-public class FragmentRecharge extends Fragment implements View.OnClickListener{
+public class FragmentRecharge extends Fragment implements View.OnClickListener,updateBalance{
 
     private static final int REQUEST_LOCATION = 32;
+    private static final String TAG = FragmentRecharge.class.getSimpleName();
     GoogleApiClient googleApiClient;
     private View view;
     private RelativeLayout rlBack,rlNext;
@@ -131,7 +130,7 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String operatorNa = parent.getItemAtPosition(position).toString();
                 for (int i = 0; i < operatorName.size(); i++) {
-                    if (operatorName.get(i).equals(operator)){
+                    if (operatorName.get(i).equals(operatorNa)){
                         code = operatorCode.get(i);
                         service = operatorType.get(i);
                         operator = operatorName.get(i);
@@ -183,6 +182,11 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener{
             editTextAmount.setError(getResources().getString(R.string.enter_amount));
             editTextAmount.requestFocus();
             SweetToast.error(getActivity(),"Please Enter amount");
+            return false;
+        }
+        if (TextUtils.isEmpty(SplashActivity.getPreferences(Constant.BALANCE,""))
+                ||Float.valueOf(SplashActivity.getPreferences(Constant.BALANCE,""))<Float.valueOf(amount)) {
+            SweetToast.error(getActivity(),"Your Available balance is low");
             return false;
         }
         return true;
@@ -368,12 +372,13 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener{
         StringRequest strReq = new StringRequest(Request.Method.POST,
                 AppConfig.MOBILE_RECHARGE, response -> {
             progressDialog.dismiss();
+
+            Log.e(TAG,"RECHARGE RESPONSE-->"+response);
             try {
                 JSONObject jsonObject1=new JSONObject(response);
                 String status = jsonObject1.getString("status");
                 String message=jsonObject1.getString("message");
                 Log.d("TAG","status:"+status);
-                webService.updateBalance(userData.getId());
                 if (status.equals("S")){
                     String txtid=jsonObject1.getString("txnId");
                     openPopup(message,"S",txtid,amount);
@@ -447,6 +452,7 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener{
             editTextAmount.setText("");
             code="";
             spinnerOperatorList.setSelection(0);
+            webService.updateBalance(userData.getId(), userData.getTxntoken());
         });
 
         dialg.show();
@@ -455,4 +461,8 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener{
         window.setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
     }
 
+    @Override
+    public void onUpdateBalance(String balance) {
+        ((MainActivity) Objects.requireNonNull(getContext())).onUpdateBalance(balance);
+    }
 }

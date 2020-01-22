@@ -111,7 +111,7 @@ public class ActivityFastag extends AppCompatActivity implements View.OnClickLis
     private Double lat,lon;
     private ArrayList<String> bankcode;
     private ArrayList<String> bankname;
-    private ArrayList<String> ftg_ifsc;
+   // private ArrayList<String> ftg_ifsc;
 
     String bkCode;
 
@@ -168,8 +168,8 @@ public class ActivityFastag extends AppCompatActivity implements View.OnClickLis
         btnKyc=findViewById(R.id.btn_continue_fastag);
 
         listData = new ArrayList<>();
-        loadListAdapter = new FastagAdapter(getApplicationContext(), listData, this);
-        webService.updateBalance(userData.getId());
+        loadListAdapter = new FastagAdapter(ActivityFastag.this, listData, this);
+        webService.updateBalance(userData.getId(), userData.getTxntoken());
        // rlFastagList=findViewById(R.id.rl_fastag_ratail);
 
         if (fastagStatus) {
@@ -182,7 +182,7 @@ public class ActivityFastag extends AppCompatActivity implements View.OnClickLis
             handler.post(() -> getBeneficiary(remitterMobile,userData.getId(),userData.getTxntoken()));
         } else {
            // rlFastag.setVisibility(View.VISIBLE);
-            scrollView.setVisibility(View.GONE);
+            scrollView.setVisibility(View.VISIBLE);
             floatAddNewBeneficiary.hide();
             rlNoData.setVisibility(View.GONE);
             recyclerViewBene.setVisibility(View.GONE);
@@ -371,12 +371,12 @@ public class ActivityFastag extends AppCompatActivity implements View.OnClickLis
 
                         bankcode = new ArrayList<>();
                         bankname = new ArrayList<>();
-                        ftg_ifsc = new ArrayList<>();
+                       // ftg_ifsc = new ArrayList<>();
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             bankcode.add(jsonObject1.getString("bankcode"));
                             bankname.add(jsonObject1.getString("bankname"));
-                            ftg_ifsc.add(jsonObject1.getString("ftg_ifsc"));
+                         //   ftg_ifsc.add(jsonObject1.getString("ftg_ifsc"));
                         }
                         ArrayAdapter<String> counryAdapter = new ArrayAdapter<>(ActivityFastag.this, R.layout.spinner_item,
                                 R.id.spinner_text,bankname);
@@ -983,7 +983,7 @@ public class ActivityFastag extends AppCompatActivity implements View.OnClickLis
                     Log.d(TAG,"recharge RESPONSED"+response);
                     assert progressDialog != null;
                     progressDialog.dismiss();
-                    webService.updateBalance(userData.getId());
+                    webService.updateBalance(userData.getId(),token);
                     try {
                         JSONObject jsonObject=new JSONObject(response);
                         String responseCode=jsonObject.getString("status");

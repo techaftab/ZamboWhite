@@ -34,14 +34,11 @@ public class WebService {
         mContext=context;
     }
 
-   /* public WebService(Context context) {
-        mContext=context;
-    }*/
    public WebService(updateBalance callback) {
        Balance = callback;
    }
 
-    public void updateBalance(final String userId){
+    public void updateBalance(final String userId, String token){
 
         String tag_string_req = "get_balance";
         HttpsTrustManager.allowAllSSL();
@@ -53,12 +50,10 @@ public class WebService {
             try {
                 JSONObject jsonObject=new JSONObject(response);
                 String status=jsonObject.getString("status");
-                if (status.equals("1")){
-                    JSONObject jObj=jsonObject.getJSONObject("data");
-                    SplashActivity.savePreferences(Constant.BALANCE,jObj.getString("walletBalance"));
-                  //  if (Balance != null) {
-                        Balance.onUpdateBalance(jObj.getString("walletBalance"));
-                 //   }
+                if (status.equals("0")){
+                    JSONObject jObj=jsonObject.getJSONObject("balance");
+                    SplashActivity.savePreferences(Constant.BALANCE,jObj.getString("balance"));
+                    Balance.onUpdateBalance(jObj.getString("balance"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -66,9 +61,15 @@ public class WebService {
         }, error -> Log.e(TAG, "Register Error: " + error.getMessage())) {
             @Override
             protected Map<String, String> getParams() {
-                // Posting params to register url
                 Map<String, String> params = new HashMap<>();
-                params.put("uUid",userId);
+                params.put(Constant.USER_ID,userId);
+                params.put(Constant.SOURCE,"APP");
+                return params;
+            }
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<>();
+                params.put("token",token);
                 return params;
             }
         };

@@ -14,6 +14,7 @@ public class PrefManager {
     private static final String KEY_MOBILE = "keymobile";
     private static final String KEY_USERTYPE = "keyusertype";
     private static final String KEY_TXN_TOKEN = "keytxntoken";
+    private static final String KEY_MEMBERID = "keymemberid";
 
     private static PrefManager mInstance;
     private static Context mCtx;
@@ -47,6 +48,7 @@ public class PrefManager {
         editor.putString(KEY_MOBILE, userData.getMobile());
         editor.putString(KEY_USERTYPE, userData.getUsertype());
         editor.putString(KEY_TXN_TOKEN,userData.getTxntoken());
+        editor.putString(KEY_MEMBERID,userData.getMemberId());
         editor.apply();
     }
 
@@ -59,7 +61,8 @@ public class PrefManager {
                 sharedPreferences.getString(KEY_EMAIL,null),
                 sharedPreferences.getString(KEY_MOBILE,null),
                 sharedPreferences.getString(KEY_USERTYPE,null),
-                sharedPreferences.getString(KEY_TXN_TOKEN,null));
+                sharedPreferences.getString(KEY_TXN_TOKEN,null),
+                sharedPreferences.getString(KEY_MEMBERID,null));
     }
 
 

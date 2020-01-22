@@ -6,6 +6,9 @@ public class AppConfig {
     public static final String  CONSTANT_RECHARGE="https://www.sriparas.com/zambo/recharge/";
     static final String CONSTANT="https://www.sriparas.com/mobileapi/";
 
+    public static final String SIGNUP = CONSTANT+"addUser ";
+    public static final String GET_STATE = CONSTANT+"stateLists";
+
     public static final String FASTTAG_USERINFO = CONSTANT_FASTTAG+"getSenderInfo";
     public static final String FASTTAG_OTP_KYC = CONSTANT_FASTTAG+"remOtp";
     public static final String FASTTAG_OTP_VERIFY = CONSTANT_FASTTAG+"verifyRemitter";

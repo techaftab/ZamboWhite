@@ -28,13 +28,26 @@ public class UserData {
     @Expose
     public String txntoken;
 
-    public UserData(String id, String fullName, String email, String mobile, String usertype, String txntoken) {
+    @SerializedName("memberId")
+    @Expose
+    public String memberId;
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public UserData(String id, String fullName, String email, String mobile, String usertype, String txntoken, String memberId) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
         this.mobile = mobile;
         this.usertype = usertype;
         this.txntoken = txntoken;
+        this.memberId = memberId;
     }
 
     public String getId() {

@@ -65,4 +65,7 @@
     <string name="enter_aadhaar">Enter Aadhaar No.</string>
     <string name="enter_company">Enter Company</string>
     <string name="enter_referral_code">Enter Referral Code</string>
+    <string name="enter_dob">Enter DOB</string>
+    <string name="share">Share</string>
+    <string name="select_state">Select State</string>
 </resources>

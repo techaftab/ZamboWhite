@@ -69,7 +69,7 @@
                                 android:layout_height="match_parent"
                                 android:padding="@dimen/_4sdp"
                                 android:layout_weight="0.80"
-                                android:src="@drawable/ic_user" />
+                                android:src="@drawable/referral" />
 
                             <EditText
                                 android:id="@+id/ed_referral_code"
@@ -157,6 +157,7 @@
                                 android:paddingRight="@dimen/_8sdp"
                                 android:background="@android:color/transparent"
                                 android:hint="@string/user_phone_no"
+                                android:maxLength="10"
                                 android:inputType="phone"
                                 android:singleLine="true"
                                 android:textColor="@color/white"
@@ -213,7 +214,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.80"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:src="@drawable/email"/>
+                                android:src="@drawable/pan"/>
 
                             <EditText
                                 android:id="@+id/ed_pan"
@@ -248,7 +249,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.80"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:src="@drawable/email"/>
+                                android:src="@drawable/pan"/>
 
                             <EditText
                                 android:id="@+id/ed_aadhaar"
@@ -284,18 +285,19 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.80"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:src="@drawable/email"/>
+                                android:src="@drawable/dob"/>
 
                             <EditText
                                 android:id="@+id/ed_dob"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.20"
+                                android:focusable="false"
                                 android:layout_gravity="center_vertical"
                                 android:paddingLeft="@dimen/_8sdp"
                                 android:paddingRight="@dimen/_8sdp"
                                 android:background="@android:color/transparent"
-                                android:hint="@string/enter_company"
+                                android:hint="@string/enter_dob"
                                 android:inputType="none"
                                 android:singleLine="true"
                                 android:textColor="@color/white"
@@ -320,7 +322,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.80"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:src="@drawable/email"/>
+                                android:src="@drawable/city"/>
 
                             <EditText
                                 android:id="@+id/ed_city"
@@ -355,9 +357,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.80"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:src="@drawable/email"/>
+                                android:src="@drawable/city"/>
 
-                            <EditText
+                            <Spinner
                                 android:id="@+id/ed_state"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -371,6 +373,21 @@
                                 android:singleLine="true"
                                 android:textColor="@color/white"
                                 android:textColorHint="@android:color/white"/>
+
+                           <!-- <EditText
+                                android:id="@+id/ed_state"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.20"
+                                android:layout_gravity="center_vertical"
+                                android:paddingLeft="@dimen/_8sdp"
+                                android:paddingRight="@dimen/_8sdp"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/enter_state"
+                                android:inputType="text"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@android:color/white"/>-->
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -434,7 +451,7 @@
                                 android:paddingLeft="@dimen/_8sdp"
                                 android:paddingRight="@dimen/_8sdp"
                                 android:background="@android:color/transparent"
-                                android:hint="@string/enter_company"
+                                android:hint="@string/enter_pincode"
                                 android:inputType="number"
                                 android:maxLength="6"
                                 android:digits="1234567890"

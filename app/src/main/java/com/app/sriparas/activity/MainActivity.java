@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FragmentTransaction ft;
     private Fragment currentFragment;
     BottomNavigationView bottomNavigationView;
-    private RelativeLayout rlLogout;
+    private RelativeLayout rlLogout,rlReferral;
     SessionManager session;
     Handler handler;
 
@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgNavigation.setOnClickListener(this);
         rlLogout.setOnClickListener(this);
         imgBackMain.setOnClickListener(this);
+        rlReferral.setOnClickListener(this);
     }
 
     @SuppressLint("SetTextI18n")
@@ -92,11 +93,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgBackMain=findViewById(R.id.img_back_main);
         rlLogout=findViewById(R.id.rl_logout);
         balanceLayout=findViewById(R.id.balance_layout);
+        rlReferral=findViewById(R.id.refer);
 
         txtUserName.setText(userData.getFullName());
         txtPhoneUser.setText(getResources().getString(R.string.app_name)+" ("+userData.getMobile()+")");
 
-        webService.updateBalance(userData.getId());
+        webService.updateBalance(userData.getId(), userData.getTxntoken());
     }
 
     @Override
@@ -119,6 +121,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else {
                 onBackPressed();
             }
+        }
+        if (v==rlReferral){
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra(Intent.EXTRA_TEXT, "Woohoo, this is my Sri Paras App please install this app from this link: " +
+                    "https://play.google.com/store/apps/details?id=com.app.sriparas&hl=en"+" and use my referral code for registraion. "+userData.getMemberId());
+            intent.setType("text/plain");
+            startActivity(Intent.createChooser(intent, "Share"));
         }
     }
 

@@ -3,7 +3,9 @@ package com.app.sriparas.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -97,6 +99,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             editTextPassword.setText(SplashActivity.getPreferences(Constant.PASSWORD,""));
             checkBox.setChecked(true);
         }
+        editTextForgotPassMobile.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                lnOtpForgot.setVisibility(View.GONE);
+                editTextOtp.setText("");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
@@ -118,10 +137,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (v==txtForgotPassword){
             cardViewlogin.setVisibility(View.GONE);
             cardViewForgot.setVisibility(View.VISIBLE);
+            lnOtpForgot.setVisibility(View.GONE);
+            editTextOtp.setText("");
         }
         if (v==txtLogin){
             cardViewlogin.setVisibility(View.VISIBLE);
             cardViewForgot.setVisibility(View.GONE);
+            lnOtpForgot.setVisibility(View.GONE);
+            editTextOtp.setText("");
+            editTextForgotPassMobile.setText("");
         }
         if (v==btnVerifyMobile){
             String phone=editTextForgotPassMobile.getText().toString();
@@ -276,7 +300,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         userloginResponse.userdata.getEmail(),
                         userloginResponse.userdata.getMobile(),
                         userloginResponse.userdata.getUsertype(),
-                        userloginResponse.userdata.getTxntoken());
+                        userloginResponse.userdata.getTxntoken(),
+                        userloginResponse.userdata.getMemberId());
                 PrefManager.getInstance(LoginActivity.this).userLogin(userData);
                 session.setLogin(true);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
