@@ -71,7 +71,15 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
             }
         }
         if (v==lnMoneyTransfer){
-            SweetToast.success(getActivity(),"Available soon");
+           // SweetToast.success(getActivity(),"Available soon");
+            if (getActivity()!=null) {
+                ft = getActivity().getSupportFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.right_in, R.anim.left_out);
+                currentFragment = new FragmentDmt();
+                ft.replace(R.id.framelayout_main, currentFragment);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
         }
         if (v==lnAeps){
             SweetToast.success(getActivity(),"Available soon");

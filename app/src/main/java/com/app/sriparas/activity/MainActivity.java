@@ -25,6 +25,8 @@ import com.app.sriparas.config.SessionManager;
 import com.app.sriparas.config.WebService;
 import com.app.sriparas.config.updateBalance;
 import com.app.sriparas.fragments.FragmentHome;
+import com.app.sriparas.fragments.FragmentProfile;
+import com.app.sriparas.fragments.FragmentWalletTransaction;
 import com.app.sriparas.models.UserData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v==imgBackMain){
             if (!(f instanceof FragmentHome)) {
                 loadFragment("1");
+                bottomNavigationView.getMenu().getItem(0).setChecked(true);
             }else {
                 onBackPressed();
             }
@@ -156,20 +159,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = item -> {
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                SweetToast.success(MainActivity.this,"Under Process");
+                loadFragmentBottom(new FragmentHome());
                 return true;
             case R.id.navigation_profile:
-                SweetToast.success(MainActivity.this,"Under Process");
+                loadFragmentBottom(new FragmentProfile());
                 return true;
             case R.id.navigation_transaction:
-                SweetToast.success(MainActivity.this,"Under Process");
+                loadFragmentBottom(new FragmentWalletTransaction());
                 return true;
-           /* case R.id.navigation_help:
-                SweetToast.success(MainActivity.this,"Under Process");
-                return true;*/
         }
         return false;
     };
+
+
+    private void loadFragmentBottom(Fragment fragment) {
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.framelayout_main, fragment);
+        ft.commit();
+    }
 
 
     @Override
@@ -177,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.framelayout_main);
         if (!(f instanceof FragmentHome)) {
             loadFragment("1");
+            bottomNavigationView.getMenu().getItem(0).setChecked(true);
         }else if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }else {
@@ -210,5 +218,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         balanceLayout.setVisibility(View.VISIBLE);
         imgNavigation.setVisibility(View.VISIBLE);
         imgBackMain.setVisibility(View.GONE);
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void updateHeaderForBottom(String string) {
+        bottomNavigationView.setVisibility(View.VISIBLE);
+        txtPhoneUser.setText(string+" ("+userData.getMobile()+")");
+        balanceLayout.setVisibility(View.GONE);
+        imgNavigation.setVisibility(View.GONE);
+        imgBackMain.setVisibility(View.VISIBLE);
+
     }
 }

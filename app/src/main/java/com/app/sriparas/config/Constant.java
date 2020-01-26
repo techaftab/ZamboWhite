@@ -44,4 +44,5 @@ public interface Constant {
     String COMPANY = "company";
     String PIN_NO = "PIN";
     String DOB = "DOB";
+    String USER_STATUS = "user_status";
 }

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/ln_date_history"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_height="@dimen/_55sdp"
+        android:padding="@dimen/_4sdp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edittext_select_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.30"
+            android:hint="@string/date"
+            android:background="@null"
+            android:singleLine="true"
+            android:inputType="none"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/black"
+            android:paddingLeft="@dimen/_8sdp"
+            android:paddingRight="@dimen/_8sdp"
+            android:focusable="false"
+            tools:ignore="TextFields" />
+
+        <Button
+            android:id="@+id/btn_select_date"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_weight="0.70"
+            android:text="@string/select_date"
+            android:textSize="@dimen/_12ssp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_title_recharge"
+        android:layout_below="@+id/ln_date_history"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Date"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:text="Trans. Id"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:text="Cr./Dr."
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:text="Avail. Bal"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_customer_history"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_below="@+id/ln_title_recharge"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/rl_no_transaction"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_below="@+id/ln_title_recharge"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_no_transaction"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/norequest"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txt_no_transaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_no_transaction"
+            android:layout_centerHorizontal="true"
+            android:text="@string/no_transaction"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressbar_history"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/colorLightGray"
+        android:padding="@dimen/_12sdp"/>
+
+
+</RelativeLayout>

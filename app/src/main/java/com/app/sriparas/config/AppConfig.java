@@ -5,6 +5,7 @@ public class AppConfig {
     public static final String  CONSTANT_FASTTAG="https://www.sriparas.com/zambo/fastag/";
     public static final String  CONSTANT_RECHARGE="https://www.sriparas.com/zambo/recharge/";
     static final String CONSTANT="https://www.sriparas.com/mobileapi/";
+    public static final String MAIN_CONSTANT="https://www.sriparas.com/zambo/";
 
     public static final String SIGNUP = CONSTANT+"addUser ";
     public static final String GET_STATE = CONSTANT+"stateLists";
@@ -23,4 +24,6 @@ public class AppConfig {
     /**/
     public static final String RECHARGE_OPOERATOR_LIST =CONSTANT_RECHARGE+"getOperator" ;
     public static final String MOBILE_RECHARGE = CONSTANT_RECHARGE+"getRecharge";
+    /*==*/
+    public static final String MONEY_BANK = MAIN_CONSTANT+"dmt/getBanks";
 }

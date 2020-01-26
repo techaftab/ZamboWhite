@@ -32,4 +32,6 @@
     <color name="dark_pink">#C62990</color>
     <color name="purple">#6950AC</color>
     <color name="highlightTextColor">#3F81C7</color>
+    <color name="green_text">#50AB33</color>
+    <color name="darkGreen">#228a52</color>
 </resources>

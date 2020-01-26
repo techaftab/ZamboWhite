@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:contentPadding="@dimen/_6sdp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_15sdp"
+    app:cardElevation="@dimen/_20sdp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+                android:layout_height="fill_parent"
+                tools:ignore="ScrollViewSize">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/enter_bank"
+                    android:textColor="@color/gray"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/edit_benf_bank"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:hint="@string/enter_bank"
+                        android:background="@drawable/box"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_14ssp"
+                        android:lines="1"
+                        android:inputType="text"
+                        android:textIsSelectable="false"
+                        android:imeOptions="actionNext"
+                        android:layout_height="@dimen/_35sdp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/enter_account"
+                    android:textColor="@color/gray"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/edit_acc_benef"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:background="@drawable/box"
+                    android:hint="@string/account_number"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_14ssp"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:layout_height="@dimen/_35sdp"
+                    tools:ignore="Autofill" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/enter_ifsc"
+                    android:textColor="@color/gray"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingStart="@dimen/_8sdp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/box"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_height="@dimen/_35sdp">
+
+                    <EditText
+                        android:id="@+id/edit_ifsc_benef"
+                        android:layout_width="match_parent"
+                        android:hint="@string/ifsc_no"
+                        android:textSize="@dimen/_14ssp"
+                        android:textIsSelectable="false"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:layout_toStartOf="@+id/txt_verify"
+                        android:inputType="textCapCharacters"
+                        android:imeOptions="actionNext"
+                        android:layout_height="@dimen/_35sdp"
+                        android:autofillHints=""
+                        tools:ignore="UnusedAttribute"
+                        android:layout_toLeftOf="@+id/txt_verify" />
+
+                    <TextView
+                        android:id="@+id/txt_verify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/verify"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/_10sdp"
+                        android:visibility="gone"
+                        android:textColor="@color/green_text"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_15ssp"
+                        tools:ignore="RelativeOverlap"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/enter_bene_name"
+                    android:textColor="@color/gray"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingStart="@dimen/_8sdp"/>
+
+                <EditText
+                    android:id="@+id/edit_name_benef"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:background="@drawable/box"
+                    android:hint="@string/name"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_14ssp"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+                    android:layout_height="@dimen/_35sdp"
+                    tools:ignore="Autofill"  />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_close"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_weight="0.60"
+                        android:gravity="center"
+                        android:background="@color/red"
+                        android:layout_gravity="center"
+                        android:text="@string/cancel"
+                        android:textSize="@dimen/_14ssp"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="@dimen/_2sdp" />
+
+                    <Button
+                        android:id="@+id/btn_add_ben"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_weight="0.40"
+                        android:text="@string/add_benef"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:background="@color/darkGreen"
+                        android:layout_marginLeft="@dimen/_2sdp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress_bene"
+            android:visibility="invisible"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_10sdp"
+            android:background="@color/colorGray"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
