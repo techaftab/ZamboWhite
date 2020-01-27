@@ -1,14 +1,5 @@
 package com.app.sriparas.activity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -26,7 +17,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -36,6 +26,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -70,7 +68,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import xyz.hasnat.sweettoast.SweetToast;
 
@@ -88,7 +85,7 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
     private EditText editTextAddress,editTextCity,editTextDistrict,editTextState,editTextPicode;
     private Button btnAddRemitter,btnAddNewBeneficiary,btnAddBeneIfNo;
     private RelativeLayout rlNoData,relativeLayoutrequestList;
-    private SwipeRefreshLayout swipeRefreshLayout;
+ //   private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView requestList;
     //  private TextView txtResendOtp,txtVerify;
     WebService webService;
@@ -101,7 +98,7 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
 
     TransferViewModel transferViewModel;
 
-    String mobile="",remitterId="",userStatus="",bIfsc,bCode,bName;
+    String mobile="",remitterId="",remitterName,remainigLimit,userStatus="",bIfsc,bCode;
     String bankNam,bankAccount="",bankIfsccode,bankBeneName;
     private ArrayList<String> bankcode;
     private ArrayList<String> bankname;
@@ -144,9 +141,9 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
     }
 
     private void initView() {
+        mobile=getIntent().getStringExtra(Constant.REMITTER_MOBILE);
         listData=new ArrayList<>();
         loadListAdapter = new BeneMoneyAdapter(MoneyTransfer.this, listData,this);
-        mobile=getIntent().getStringExtra(Constant.REMITTER_MOBILE);
         remitterId=getIntent().getStringExtra(Constant.REMITTER_ID);
         userStatus=getIntent().getStringExtra(Constant.USER_STATUS);
         userData= PrefManager.getInstance(MoneyTransfer.this).getUserData();
@@ -159,11 +156,10 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
         expandableRelativeLayout=findViewById(R.id.expandablelayout_money_transfer);
         linearProgress=findViewById(R.id.progressbar_dmt);
         lnRemitterDetail=findViewById(R.id.ln_remitter_details);
-        txtUserMobile.setText("Mobile: "+mobile);
 
         rlNoData=findViewById(R.id.rl_no_beneficiary);
         requestList=findViewById(R.id.recyclerview_money_transfer);
-        swipeRefreshLayout=findViewById(R.id.swiperefresh_money_transfer);
+       // swipeRefreshLayout=findViewById(R.id.swiperefresh_money_transfer);
         btnAddNewBeneficiary=findViewById(R.id.btn_add_new_beneficiary);
         relativeLayoutrequestList=findViewById(R.id.relative_request_list);
         btnAddBeneIfNo=findViewById(R.id.btn_add_benef);
@@ -181,13 +177,13 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
 
         loadView();
 
-        swipeRefreshLayout.setOnRefreshListener(() -> {
-                    if (mobile.length()==10){
-                        getRemitterBeneficiary(mobile,userData.getId(),userData.getTxntoken());
-                        swipeRefreshLayout.setRefreshing(false);
-                    }
-                }
-        );
+//        swipeRefreshLayout.setOnRefreshListener(() -> {
+//                    if (mobile.length()==10){
+//                        getRemitterBeneficiary(mobile,userData.getId(),userData.getTxntoken());
+//                        swipeRefreshLayout.setRefreshing(false);
+//                    }
+//                }
+//        );
     }
     @Override
     public void onClick(View v) {
@@ -222,17 +218,35 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void loadView() {
         if (userStatus.equalsIgnoreCase("Allready")){
             lnRemitterDetail.setVisibility(View.GONE);
+            remainigLimit=getIntent().getStringExtra(Constant.REMITTER_REMAIN_LIMIT);
+            remitterName=getIntent().getStringExtra(Constant.REMITTER_NAME);
+            setDetails(true);
             getRemitterBeneficiary(mobile,userData.getId(),userData.getTxntoken());
         }else if (userStatus.equalsIgnoreCase("verify")){
             lnRemitterDetail.setVisibility(View.GONE);
+            remainigLimit=getIntent().getStringExtra(Constant.REMITTER_REMAIN_LIMIT);
+            remitterName=getIntent().getStringExtra(Constant.REMITTER_NAME);
+            setDetails(false);
             getOtpRemitter(mobile, userData.getId(),userData.getTxntoken());
         }else {
             lnRemitterDetail.setVisibility(View.VISIBLE);
+            txtUserMobile.setText("Mobile: "+mobile);
         }
     }
+
+    @SuppressLint("SetTextI18n")
+    private void setDetails(Boolean status) {
+        if (status) {
+            txtUserMobile.setText(remitterName + " (" + mobile + ")\nRemainig Limit: ₹" + remainigLimit);
+        }else {
+            txtUserMobile.setText(remitterName + " (" + mobile + ")");
+        }
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     private void openDialogForBeneficiary() {
         final Dialog dialg=new Dialog(MoneyTransfer.this);
@@ -466,7 +480,7 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
                 relativeLayoutrequestList.setVisibility(View.VISIBLE);
                 requestList.setVisibility(View.VISIBLE);
                 listData.clear();
-                listData.addAll(beneficiaryResponse.beneficiary);
+                listData.addAll(beneficiaryResponse.getBeneficiary());
                 loadListAdapter.notifyDataSetChanged();
             } else {
                 relativeLayoutrequestList.setVisibility(View.VISIBLE);
@@ -548,13 +562,20 @@ public class MoneyTransfer extends AppCompatActivity implements updateBalance,
             if (transferCheckResponse.status.equalsIgnoreCase("0")) {
                 lnRemitterDetail.setVisibility(View.GONE);
                 remitterId=transferCheckResponse.remitter.remitterId;
+                remitterName=transferCheckResponse.remitter.remName;
+                remainigLimit=transferCheckResponse.remitter.remaininglimit;
+                setDetails(true);
                 getRemitterBeneficiary(mobile,userId,token);
             } else if (transferCheckResponse.status.equalsIgnoreCase("3")){
                 lnRemitterDetail.setVisibility(View.GONE);
                 remitterId=transferCheckResponse.remitter.remitterId;
+                remitterName=transferCheckResponse.remitter.remName;
+                remainigLimit=transferCheckResponse.remitter.remaininglimit;
                 getOtpRemitter(mobile, userId, token);
+                setDetails(false);
             } else if (transferCheckResponse.status.equalsIgnoreCase("2")){
                 lnRemitterDetail.setVisibility(View.VISIBLE);
+                txtUserMobile.setText("Mobile: "+mobile);
             } else {
                 SweetToast.error(MoneyTransfer.this,transferCheckResponse.message);
             }

@@ -165,7 +165,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 loadFragmentBottom(new FragmentProfile());
                 return true;
             case R.id.navigation_transaction:
-                loadFragmentBottom(new FragmentWalletTransaction());
+                SweetToast.error(MainActivity.this,"Working under process");
+              //  loadFragmentBottom(new FragmentWalletTransaction());
                 return true;
         }
         return false;
@@ -227,6 +228,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         balanceLayout.setVisibility(View.GONE);
         imgNavigation.setVisibility(View.GONE);
         imgBackMain.setVisibility(View.VISIBLE);
-
     }
 }

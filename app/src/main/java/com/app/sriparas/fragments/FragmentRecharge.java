@@ -278,7 +278,7 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener,u
                 mobile + " ?"));
 
         btnContinue.setOnClickListener(v ->
-                recharge(mobile,amount,id,txntoken,code,service,operator,lat,lon));
+                recharge(mobile,amount,id,txntoken,code,service,operator,lat,lon,dialog));
 
         btnCancel.setOnClickListener(v -> dialog.dismiss());
 
@@ -363,7 +363,7 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener,u
         }
     }
     private void recharge(String mobile, String amount, String id, String txntoken, String code,
-                          String service, String operator, Double lat, Double lon) {
+                          String service, String operator, Double lat, Double lon, Dialog dialog) {
         String tag_string_req = "recharge_process";
         progressDialog.setMessage("Processing...");
         progressDialog.show();
@@ -379,6 +379,7 @@ public class FragmentRecharge extends Fragment implements View.OnClickListener,u
                 String status = jsonObject1.getString("status");
                 String message=jsonObject1.getString("message");
                 Log.d("TAG","status:"+status);
+                dialog.dismiss();
                 if (status.equals("S")){
                     String txtid=jsonObject1.getString("txnId");
                     openPopup(message,"S",txtid,amount);

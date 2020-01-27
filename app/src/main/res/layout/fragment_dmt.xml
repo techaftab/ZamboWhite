@@ -54,7 +54,7 @@
                     android:singleLine="true"
                     android:inputType="phone"
                     android:maxLength="10"
-                    android:digits=".0123456789"
+                    android:digits="0123456789"
                     android:imeOptions="actionDone"
                     android:drawableEnd="@drawable/ic_people_black_24dp"
                     android:hint="@string/enter_mobile"

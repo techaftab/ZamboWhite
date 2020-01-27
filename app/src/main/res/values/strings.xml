@@ -89,4 +89,5 @@
     <string name="transfer">Transfer</string>
     <string name="pay">PAY</string>
     <string name="cancel_btn">Cancel</string>
+    <string name="enter_remitter_name">Enter Remitter Name</string>
 </resources>

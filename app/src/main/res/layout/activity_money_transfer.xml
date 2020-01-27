@@ -108,9 +108,8 @@
                     android:layout_gravity="center_horizontal"
                     android:padding="@dimen/_5sdp"
                     android:textStyle="bold"
-                    android:textSize="@dimen/_16ssp"
-                    android:textColor="@color/colorError"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/colorPrimaryDark"
                     android:text="@string/enter_mobile"/>
 
                 <LinearLayout
@@ -134,7 +133,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="@string/enter_name"
+                        android:text="@string/enter_remitter_name"
                         android:textColor="@color/black"
                         android:textStyle="normal"
                         android:textAllCaps="false"
@@ -159,15 +158,11 @@
                             android:imeOptions="actionNext"
                             android:background="@null"
                             android:layout_centerVertical="true"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/_40sdp"
                             android:paddingLeft="@dimen/_8sdp"
-                            android:paddingRight="@dimen/_8sdp"
-                            android:lines="2"
-                            android:maxLines="3"/>
+                            android:paddingRight="@dimen/_8sdp"/>
 
                     </RelativeLayout>
-
-
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -199,7 +194,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="@dimen/_8sdp"
                             android:paddingRight="@dimen/_8sdp"
-                            android:lines="2"
+                            android:lines="3"
                             android:maxLines="3"/>
 
                     </RelativeLayout>
@@ -389,22 +384,21 @@
                         android:textAllCaps="false"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:layout_alignParentStart="true"
-                        android:layout_height="@dimen/_40sdp"
+                        android:layout_height="@dimen/_35sdp"
                         android:layout_alignParentLeft="true" />
 
-                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                        android:id="@+id/swiperefresh_money_transfer"
+                   <!-- <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_money_transfer"
                         android:layout_below="@+id/btn_add_new_beneficiary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerview_money_transfer"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentTop="true" />
-
-                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                        android:layout_height="match_parent"/>
 
                     <RelativeLayout
                         android:id="@+id/rl_no_beneficiary"
@@ -417,7 +411,7 @@
                         <ImageView
                             android:id="@+id/img_no_beneficiary"
                             android:layout_width="@dimen/_100sdp"
-                            android:layout_height="@dimen/_10sdp"
+                            android:layout_height="@dimen/_100sdp"
                             android:layout_marginTop="@dimen/_80sdp"
                             android:src="@drawable/add_contact"
                             android:layout_centerHorizontal="true"/>
@@ -454,7 +448,6 @@
             </LinearLayout>
 
         </ScrollView>
-
 
     </LinearLayout>
 

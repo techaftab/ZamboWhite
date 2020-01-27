@@ -115,25 +115,29 @@ public class FragmentDmt extends Fragment implements View.OnClickListener {
               //  lnRemitterDetail.setVisibility(View.GONE);
                 String remitterId=transferCheckResponse.remitter.remitterId;
               //  getRemitterBeneficiary(mobile,userId,token);
-                goActivity(remitterId,mobile,"Allready");
+                goActivity(remitterId,mobile,"Allready",transferCheckResponse.remitter.remName,
+                        transferCheckResponse.remitter.remaininglimit);
             } else if (transferCheckResponse.status.equalsIgnoreCase("3")){
                // lnRemitterDetail.setVisibility(View.GONE);
                 String remitterId=transferCheckResponse.remitter.remitterId;
                // getOtpRemitter(mobile, userId, token);
-                goActivity(remitterId,mobile,"verify");
+                goActivity(remitterId,mobile,"verify", transferCheckResponse.remitter.remName,
+                        transferCheckResponse.remitter.remaininglimit);
             } else if (transferCheckResponse.status.equalsIgnoreCase("2")){
                // lnRemitterDetail.setVisibility(View.VISIBLE);
-                goActivity("",mobile,"new");
+                goActivity("",mobile,"new", "","");
             } else {
                 SweetToast.error(getActivity(),transferCheckResponse.message);
             }
         });
     }
 
-    private void goActivity(String remitterId,String mobile, String status) {
+    private void goActivity(String remitterId, String mobile, String status, String remName,String remainigLimit) {
         Intent intent=new Intent(getActivity(), MoneyTransfer.class);
         intent.putExtra(Constant.REMITTER_ID,remitterId);
         intent.putExtra(Constant.REMITTER_MOBILE,mobile);
+        intent.putExtra(Constant.REMITTER_NAME,remName);
+        intent.putExtra(Constant.REMITTER_REMAIN_LIMIT,remainigLimit);
         intent.putExtra(Constant.USER_STATUS,status);
         startActivity(intent);
         Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.right_in, R.anim.left_out);

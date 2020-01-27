@@ -45,4 +45,6 @@ public interface Constant {
     String PIN_NO = "PIN";
     String DOB = "DOB";
     String USER_STATUS = "user_status";
+    String REMITTER_REMAIN_LIMIT = "remaining_limit";
+    String REMITTER_NAME = "remitter_name";
 }
